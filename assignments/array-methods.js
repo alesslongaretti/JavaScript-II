@@ -57,8 +57,9 @@ const runners = [
 
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
-let fullNames = runners.map(function(name)  {
-  return (`${name.first_name}  ${name.last_name}`);
+let fullNames = [];
+runners.forEach(function(name)  {
+  fullNames.push(`${name.first_name}  ${name.last_name}`);
 });
 
 console.log(fullNames);
@@ -75,19 +76,39 @@ console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let runnersLargeSizeShirt = [];
+let runnersLargeSizeShirt = runners.filter(function(size){
+  return size.shirt_size === "L";
+});
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = 0;
+let ticketPriceTotal = runners.reduce(function(total, result) {
+  return total += result.donation;
+}, 0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 people that work for the company Skinix
+let runnerscompanyname = runners.filter(function(company){
+  return company.company_name === 'Skinix';
+});
 
-// Problem 2
+console.log(runnerscompanyname);
 
-// Problem 3
+// Problem 2 lowercase
+let runnerskeys = runners.map (function (name) {
+  return name.first_name.toLowerCase();
+});
+
+console.log(runnerskeys);
+
+// Problem 3 donated more than 200
+
+let runnershighdonation = runners.filter (function (money){
+  return money.donation >= 200;
+});
+
+console.log(runnershighdonation);

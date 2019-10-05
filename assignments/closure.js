@@ -4,12 +4,13 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
-// const name = 'alessandra';
-// function myName (){
-//   return name;
-// }
+const name = 'Alessandra';
+function hello() {
+  const lastName = 'Longaretti';
+  return(`hello my name is ${name} ${lastName}`);
+};
 
-console.log(myName());
+console.log(hello());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
