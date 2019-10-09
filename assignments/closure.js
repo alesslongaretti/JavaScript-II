@@ -18,12 +18,22 @@ console.log(hello());
 // ==== Challenge 2: Implement a "counter maker" function ====
 const counterMaker = () => {
   // IMPLEMENTATION OF counterMaker:
+  let count = 0; {
   // 1- Declare a `count` variable with a value of 0. We will be mutating it, so declare it using `let`!
+function counter() {
+  return ++count;
+}
+
   // 2- Declare a function `counter`. It should increment and return `count`.
   //      NOTE: This `counter` function, being nested inside `counterMaker`,
   //      "closes over" the `count` variable. It can "see" it in the parent scope!
+  return counter;
   // 3- Return the `counter` function.
-};
+}};
+const newCounter = counterMaker();
+console.log(newCounter());
+console.log(newCounter());
+
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
